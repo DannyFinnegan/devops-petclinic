@@ -26,14 +26,28 @@ pipeline {
                 sh './mvnw package -DskipTests'
             }
         }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t petclinic .'
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                sh 'docker stop petclinic || true'
+                sh 'docker rm petclinic || true'
+                sh 'docker run -d -p 8081:8080 --name petclinic petclinic'
+            }
+        }
     }
 
     post {
         success {
-            echo 'Build completed successfully'
+            echo 'Pipeline completed successfully'
         }
         failure {
-            echo 'Build failed'
+            echo 'Pipeline failed'
         }
     }
 }

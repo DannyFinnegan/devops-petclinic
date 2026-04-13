@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: yourdockerhubusername/spring-petclinic
+      IMAGE_NAME: dannyfinnegan/spring-petclinic
       IMAGE_TAG: latest
       CONTAINER_NAME: spring-petclinic
 

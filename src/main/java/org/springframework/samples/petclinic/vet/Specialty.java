@@ -30,3 +30,4 @@ import jakarta.persistence.Table;
 public class Specialty extends NamedEntity {
 
 }
+//This is a test of github actions
